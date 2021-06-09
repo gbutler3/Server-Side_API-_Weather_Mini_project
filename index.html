@@ -5,13 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"><!--link to the style.css-->
 
     <title>Weather DashBoard </title><!--Tab name in browser-->
    
 </head>
 <body>
-    
+<!--This is the Nav bar-->
+<header>
+    <nav class="navbar fixed-top navbar-dark bg-custom-1 ">
+        <div class="container-fluid">
+        <a class="navbar-brand"> Weather Dashboard</a>
+        </div>
+    </nav>
+</header>
+
+<!--This is the side search area-->
+<aside>
+    <div class= "city-container" >
+        <h1>Search for a City:</h1>
+            <div class="form-outline">
+                <input type="search" id="form1" class="form-control search" placeholder="Dallas"
+                aria-label="Search" />
+                    <div class= "SubmitBtn"> 
+                        <button class= "submit">Search</button>
+                    </div>
+            </div>
+
+            <div id = "prior-searches" class= "prior-searches"></div> <!--format the rest of this in JS-->
+
+    </div>
+</aside>
+
 </body>
 
 <script src="./script.js"></script><!--link to script.js-->

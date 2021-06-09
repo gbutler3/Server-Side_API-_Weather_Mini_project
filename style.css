@@ -1,4 +1,48 @@
 /* making sure this is linked properly (take out later */
+
 html {
-  background-color: pink;
+  background-color: rgba(238, 238, 238, 0.897);
+}
+
+body {
+  margin: 0px;
+}
+
+.bg-custom-1 {
+  background-image: linear-gradient(15deg, #074f79 0%, #6bf5fa 100%);
+  color: antiquewhite;
+  font-weight: 400;
+  text-align: center;
+  font-size: 75px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.city-container {
+  /* border: 1px solid black; */
+  width: 27%;
+  height: auto;
+  margin: 10px;
+}
+
+h1 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+}
+
+.search {
+  margin: 2px 5px 20px 5px;
+  width: 95%;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+
+.submit {
+  margin: 2px 5px 20px 5px;
+  width: 95%;
+  background-color: #074f79;
+  color: antiquewhite;
+  font-family: "Bebas Neue", cursive;
+  font-weight: lighter;
+  font-size: 20px;
 }
