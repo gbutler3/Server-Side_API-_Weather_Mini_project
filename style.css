@@ -2,6 +2,7 @@
 
 html {
   background-color: rgba(238, 238, 238, 0.897);
+  font-family: "Roboto Slab", serif;
 }
 
 body {
@@ -27,17 +28,18 @@ body {
 h1 {
   font-family: "Roboto Slab", serif;
   font-weight: 500;
+  font-size: 30px;
 }
 
 .search {
   margin: 2px 5px 20px 5px;
   width: 95%;
   height: 40px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 5px;
 }
 
-.submit {
+.submitbtn {
   margin: 2px 5px 20px 5px;
   width: 95%;
   background-color: #074f79;
@@ -45,4 +47,23 @@ h1 {
   font-family: "Bebas Neue", cursive;
   font-weight: lighter;
   font-size: 20px;
+  border-radius: 5px;
+}
+
+ul.cities-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cities-list-item {
+  background-color: #7a1c0c;
+  color: antiquewhite;
+  height: auto;
+  width: 95%;
+  margin: 2px 5px 20px 5px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
 }
