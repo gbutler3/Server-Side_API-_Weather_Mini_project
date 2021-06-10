@@ -1,17 +1,11 @@
-/* making sure this is linked properly (take out later */
-
 html {
   background-color: rgba(238, 238, 238, 0.897);
   font-family: "Roboto Slab", serif;
+  margin: 5px;
 }
 
-body {
-  margin: 0px;
-}
-
-.bg-custom-1 {
+.jumbotron-brand {
   background-image: linear-gradient(15deg, #074f79 0%, #6bf5fa 100%);
-  color: antiquewhite;
   font-weight: 400;
   text-align: center;
   font-size: 75px;
@@ -20,34 +14,34 @@ body {
 
 .city-container {
   /* border: 1px solid black; */
-  width: 27%;
   height: auto;
-  margin: 10px;
 }
 
 h1 {
   font-family: "Roboto Slab", serif;
   font-weight: 500;
   font-size: 30px;
+  margin: 5px;
 }
 
 .search {
   margin: 2px 5px 20px 5px;
-  width: 95%;
-  height: 40px;
   font-size: 20px;
-  border-radius: 5px;
+}
+
+.form-control {
+  width: 97%;
 }
 
 .submitbtn {
   margin: 2px 5px 20px 5px;
-  width: 95%;
   background-color: #074f79;
   color: antiquewhite;
   font-family: "Bebas Neue", cursive;
   font-weight: lighter;
   font-size: 20px;
   border-radius: 5px;
+  width: 97%;
 }
 
 ul.cities-list {
@@ -60,10 +54,14 @@ ul.cities-list {
   background-color: #7a1c0c;
   color: antiquewhite;
   height: auto;
-  width: 95%;
   margin: 2px 5px 20px 5px;
   height: 30px;
   font-size: 20px;
   border-radius: 5px;
   text-align: center;
+}
+
+.current-weather-card {
+  border: 1px solid black;
+  margin-left: 10px;
 }

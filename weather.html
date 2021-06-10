@@ -7,35 +7,36 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"><!--link to the style.css-->
 
-    <title>Weather DashBoard </title><!--Tab name in browser-->
+    <title>weather.html </title><!--TODO: CHANGE THIS WHEN SUBMITTING Tab name in browser-->
    
 </head>
 <body>
-<!--This is the Nav bar-->
+<!--This is the jumbotron-->
 <header>
-    <nav class="navbar fixed-top navbar-dark bg-custom-1 ">
-        <div class="container-fluid">
-        <a class="navbar-brand"> Weather Dashboard</a>
+    <nav class="jumbotron">
+        <div class="jumbotron-fluid">
+        <a class="jumbotron-brand fixed-top">Weather Dashboard </a>
         </div>
     </nav>
 </header>
 
 <!--This is the side search area-->
-<aside>
+<main class= "row">
     <!--this is teh search area-->
-    <div class= "city-container" >
+    <div class= "city-container col-3 m-2" >
         <h1>Search for a City:</h1>
-        <div class="form-outline">
-            <input type="search" id="form1" class="form-control search" placeholder="Boston"
+        <div class="form-outline mb-2">
+            <input type="search" class="form-control search" placeholder="Boston"
             aria-label="Search" />
                 <div class= "button"> 
                     <button id= "SubmitBtn" class= "submitbtn">Search</button>
                 </div>
         </div>
         <!--This is the area which will show the prior searches-->
-        <div id = "prior-searches" class= "prior-searches">
+        <div id = "prior-searches" class= "prior-searches ">
             <ul id= "cities-list" class= "cities-list">
                 <!--Todo: 1. CREATE and APPEND <li> IN THE JS and then 2. comment the <li> lines out here-->
                <li id= "cities-list-item" class= "cities-list-item">test1</li> 
@@ -45,9 +46,59 @@
             </ul>
         </div> 
     </div>
-</aside>
-
-
+    <!--This shows the selected City curent day weather info -->
+    <div id= "current-weather" class= "col-8 m-2">
+        <div class= "row-12">
+            <div class= "current-weather-card current-weather">
+                <h2 id= "city-name" class= "city-name">City name: </h2>
+                <p id= "temperature" class= "temperature">Temperature: </p>
+                <p id= "wind" class="wind">Wind: </p>
+                <p id="humidity" class="humidity">Humidity: </p>
+                <p id="uvIndex" class= "uvIndex">UV Index: </p>
+            </div>
+        </div>
+        <br> 
+        <!--This shows the 5 day forcast-->
+        <div class="row-12">
+            <h3>5 Day Forecast:</h3>
+        </div>
+        <br>
+        <div id= dayBoxes class= "row"> 
+            <div class="col-2 m-3 bg-info"> <!--Forecast day 1-->
+                <h6>Date</h6>
+                <img src= "#">
+                <p> Temperature</p>
+                <p>Humidity</p>
+            </div>
+            <div class="col-2 m-3 bg-info"><!--Forecast day 2-->
+                <h6>Date</h6>
+                <img src= "#">
+                <p> Temperature</p>
+                <p>Humidity</p>
+            </div>
+            <div class="col-2 m-3 bg-info"> <!--Forecast day 3-->
+                <h6>Date</h6>
+                <img src= "#">
+                <p> Temperature</p>
+                <p>Humidity</p>
+            </div>
+            <div class="col-2 m-3 bg-info"><!--Forecast day 4-->
+                <h6>Date</h6>
+                <img src= "#">
+                <p> Temperature</p>
+                <p>Humidity</p>
+            </div>
+            <div class="col-2 m-3 bg-info"><!--Forecast day 5-->
+                <h6>Date</h6>
+                <img src= "#">
+                <p> Temperature</p>
+                <p>Humidity</p>
+            </div>
+        </div>
+     
+       
+    </div>    
+</main>
 
 </body>
 
