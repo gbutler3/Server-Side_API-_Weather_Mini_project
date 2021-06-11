@@ -1,6 +1,19 @@
 var searchInput = $(".search");
 var submitbtn = $(".submitbtn");
 
+var weather;
+var api = "http://api.openweathermap.org/data/2.5/weather?q=";
+var apikey = "&APPID=4774555034df98f9c59d9ec59b6ebf72";
+var units= "&units=imperial";
+var city= $('#search').val();
+
+
+var cityNameEl = document.getElementsByClassName(".city-name");
+var temperatureEl = document.getElementsByClassName(".temperature");
+var windEl= document.getElementsByClassName(".wind");
+var humidityEl= document.getElementsByClassName(".humidity");
+var uvIndexEl= document.getElementById(".uvIndex");
+
 submitbtn.on("click", function(e) {
     e.preventDefault();
     if (searchInput.val() === "") {
@@ -8,9 +21,12 @@ submitbtn.on("click", function(e) {
         return;
     }
     console.log("clicked button")
-    weatherpage(searchInput.val());
+    weatherAsk(searchInput.val());
 });
 
-function weatherpage (){
-    console.log ("weatherpage")
+function weatherAsk(){
+    var url =api + city + searchInput + apikey + units;
+    console.log(url);
 }
+
+
