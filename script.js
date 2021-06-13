@@ -16,17 +16,25 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
     .then(data => {
         var cityvalue = data['name'];
         var temperaturevalue = 'Temperature: ' + data['main']['temp'] + '°F';
-        var windvalue ='Wind: ' + data['wind']['speed'];
+        var windvalue ='Wind: ' + data['wind']['speed'] + " MPH";
         var humidityvalue='Humidity: ' + data['main']['humidity'];
+
+        var latvalue = data['coord']['lat'];
+        var lonvalue = data['coord']['lon'];
 
         cityNameEl.innerHTML = cityvalue;
         temperatureEl.innerHTML = temperaturevalue;
         windEl.innerHTML = windvalue;
         humidityEl.innerHTML = humidityvalue;
+
+        latvalue;
+        lonvalue; 
         console.log(data)
     })
 
-.catch(err => alert("Wrong City Name!"))
+fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='+ lonvalue +'&exclude=hourly&appid=4774555034df98f9c59d9ec59b6ebf72')
+    .then(response2 => response2.json())
+    .then(data2)
 });
 
 
