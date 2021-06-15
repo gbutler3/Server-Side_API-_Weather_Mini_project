@@ -12,14 +12,11 @@ var uvIndexEl= document.querySelector(".uvIndex");
 //variables for forcast
 var forecastdate= document.querySelector(".box-date")
 var forecasttemp= document.querySelector(".box-temperature")
+var forecastwind= document.querySelector(".box-wind")
 var forcasthumidity= document.querySelector(".box-humidity")
 
 submitbtn.on("click", function(){
 console.log("button Clicked")
-
-function today(){
-    var todayEl = moment().format('dddd, MMM Do YYYY')
-}
 
 //this url gets the city, temp, wind, humidity, lat, and lon
 fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
@@ -30,24 +27,35 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
         var temperaturevalue = 'Temperature: ' + data['main']['temp'] + '°F';
         var windvalue ='Wind: ' + data['wind']['speed'] + " MPH";
         var humidityvalue='Humidity: ' + data['main']['humidity'];
-
+        var iconvalue= ''
         var latvalue = data['coord']['lat'];
         var lonvalue = data['coord']['lon'];
-        
+
         //display current day in html
         cityNameEl.innerHTML = cityvalue;
         temperatureEl.innerHTML = temperaturevalue;
         windEl.innerHTML = windvalue;
         humidityEl.innerHTML = humidityvalue;
 
-        //todo: display forecast in html.. how to get additional days and the picture
-        forecastdate.innerHTML= cityvalue;
-        forecasttemp.innerHTML=temperaturevalue;
-        forcasthumidity.innerHTML=humidityvalue;
-
         latvalue;
         lonvalue;
         console.log(data)
+
+        //todo: display forecast in html.. how to get additional days and the picture
+        forecastdate.innerHTML= cityvalue;
+        forecasttemp.innerHTML=temperaturevalue;
+        forecastwind.innerHTML=windvalue;
+        forcasthumidity.innerHTML=humidityvalue;
+
+        var skyconditions =document.querySelector("box-img");
+
+        if(skyconditions==="Clouds"){
+            imgtag.attr("src", "https://img.icons8.com/color/48/000000/cloud.png")
+        } else if(skyconditions==="Clear"){
+            imgtag.attr("src", "https://img.icons8.com/color/48/000000/summer.png")
+        }else if(skyconditions==="Rain"){
+            imgtag.attr("src", "https://img.icons8.com/color/48/000000/rain.png")
+        }
 
 //this takes the lat and long from the one above and applies it to get the uvi for that specific city
 fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='+ lonvalue +'&exclude=hourly&appid=4774555034df98f9c59d9ec59b6ebf72')
