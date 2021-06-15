@@ -53,16 +53,6 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
         forecastwind.innerHTML=windvalue;
         forcasthumidity.innerHTML=humidityvalue;
 
-        var skyconditions =document.querySelector("box-img");
-
-        if(skyconditions==="Clouds"){
-            imgtag.attr("src", "https://openweathermap.org/img/wn/${weatherIcon}@2x.png")
-        } else if(skyconditions==="Clear"){
-            imgtag.attr("src", "https://openweathermap.org/img/wn/${weatherIcon}@2x.png")
-        }else if(skyconditions==="Rain"){
-            imgtag.attr("src", "https://openweathermap.org/img/wn/${weatherIcon}@2x.png")
-        }
-
 //this takes the lat and long from the one above and applies it to get the uvi for that specific city
 fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='+ lonvalue +'&exclude=hourly&appid=4774555034df98f9c59d9ec59b6ebf72')
 .then(response => response.json())
@@ -89,16 +79,19 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + searchInput.val() 
 
     for (i = 0; i < data.list.length; i +=8) 
     {var dtConvertion = new Date(parseInt(data.list[i].dt) * 1000)
+     var date = `${dtConvertion.getMonth()}/${dtConvertion.getDate()}/${dtConvertion.getFullYear()}`
         console.log(data.list[i])
-        console.log(dtConvertion)}
+        console.log(dtConvertion)
 
-
-        
         //document.getElementById(i)
-        console.log(document.getElementById(`${i}`))
+        console.log(document.getElementById(`${i}`).children)
+        document.getElementById(`${i}`).children[0].innerHTML=date
+        document.getElementById(`${i}`).children[1].src='https://openweathermap.org/img/wn/'+ data.list[i].weather[0].icon+ '@2x.png'
+        document.getElementById(`${i}`).children[2].innerHTML=data.list[i].main.temp
+        console.log(data.list[i].main.temp)
 
         temperatureEl.innerHTML = temperaturevalue;
-    
+    }
 })
 
 
