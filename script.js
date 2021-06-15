@@ -24,18 +24,18 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
     .then(response => response.json())
     .then(data => {
         var cityvalue = data['name'];
-        console.log(cityvalue)
+        //console.log(cityvalue)
         var temperaturevalue = 'Temperature: ' + data['main']['temp'] + '°F';
-        console.log(temperaturevalue)
+        //console.log(temperaturevalue)
         var windvalue ='Wind: ' + data['wind']['speed'] + " MPH";
-        console.log(windvalue)
-        var humidityvalue='Humidity: ' + data['main']['humidity'];
-        console.log(humidityvalue)
+        //console.log(windvalue)
+        var humidityvalue='Humidity: ' + data['main']['humidity'] + ' %';
+        //console.log(humidityvalue)
         var iconvalue= ''
         var latvalue = data['coord']['lat'];
-        console.log(latvalue)
+        //console.log(latvalue)
         var lonvalue = data['coord']['lon'];
-        console.log(data)
+        //console.log(data)
 
         //display current day in html
         cityNameEl.innerHTML = cityvalue;
@@ -45,9 +45,7 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
 
         latvalue;
         lonvalue;
-        console.log(data)
-
-        //todo: display forecast in html.. how to get additional days and the picture
+        // console.log(data)
         forecastdate.innerHTML= cityvalue;
         forecasttemp.innerHTML=temperaturevalue;
         forecastwind.innerHTML=windvalue;
@@ -57,21 +55,21 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
 fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='+ lonvalue +'&exclude=hourly&appid=4774555034df98f9c59d9ec59b6ebf72')
 .then(response => response.json())
 .then(data => { 
-    console.log(data)
+    // console.log(data)
     var uvivalue = 'UV Index: ' + data['current']['uvi']; 
 
 //todo: figure out why it's not setting a color
-        // if (value.data < 3){
-        //     document.getElementsByClassName("uvIndex").classlist.add("green")
-        // } else if (uvivalue.data < 6){
-        //     document.getElementsByClassName("uvIndex").classlist.add("yellow")
-        // } else if (uvivalue.data < 8){
-        //     document.getElementsByClassName("uvIndex").classlist.add("orange")
-        // } else if (uvivalue.data < 10){
-        //     document.getElementsByClassName("uvIndex").classlist.add("red")}
+        if (data.uvivalue < 3){
+            document.getElementsByClassName("uvIndex").classlist.add("green")
+        } else if (data.uvivalue < 6){
+            document.getElementsByClassName("uvIndex").classlist.add("yellow")
+        } else if (data.uvivalue < 8){
+            document.getElementsByClassName("uvIndex").classlist.add("orange")
+        } else if (data.uvivalue < 10){
+            document.getElementsByClassName("uvIndex").classlist.add("red")}
         // console.log(uvivalue)
 
-// uvIndexEl.innerHTML = uvivalue;
+uvIndexEl.innerHTML = uvivalue;
 
 fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + searchInput.val() + '&units=imperial&appid=4774555034df98f9c59d9ec59b6ebf72')
 .then(response => response.json())
@@ -80,22 +78,20 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + searchInput.val() 
     for (i = 0; i < data.list.length; i +=8) 
     {var dtConvertion = new Date(parseInt(data.list[i].dt) * 1000)
      var date = `${dtConvertion.getMonth()}/${dtConvertion.getDate()}/${dtConvertion.getFullYear()}`
-        console.log(data.list[i])
-        console.log(dtConvertion)
+        // console.log(data.list[i])
+        // console.log(dtConvertion)
 
         //document.getElementById(i)
-        console.log(document.getElementById(`${i}`).children)
+        //console.log(document.getElementById(`${i}`).children)
         document.getElementById(`${i}`).children[0].innerHTML=date
         document.getElementById(`${i}`).children[1].src='https://openweathermap.org/img/wn/'+ data.list[i].weather[0].icon+ '@2x.png'
-        document.getElementById(`${i}`).children[2].innerHTML=data.list[i].main.temp
-        console.log(data.list[i].main.temp)
+        document.getElementById(`${i}`).children[2].innerHTML='Temperature: '+ data.list[i].main.temp + '°F'
+        document.getElementById(`${i}`).children[3].innerHTML= 'Wind: '+ data.list[i].wind.speed + ' MPH'
+        document.getElementById(`${i}`).children[4].innerHTML= 'Humidity: ' + data.list[i].main.humidity + ' %'
 
         temperatureEl.innerHTML = temperaturevalue;
     }
 })
-
-
-
 
 //TODO: In Application it shows only data being saved and not data
 localStorage.setItem(cityvalue,JSON.stringify(data));
