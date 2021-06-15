@@ -65,3 +65,19 @@ ul.cities-list {
   border: 1px solid black;
   margin-left: 10px;
 }
+
+.green {
+  background-color: #259908;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red;
+}
