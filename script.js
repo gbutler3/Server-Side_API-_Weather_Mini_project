@@ -24,12 +24,18 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
     .then(response => response.json())
     .then(data => {
         var cityvalue = data['name'];
+        console.log(cityvalue)
         var temperaturevalue = 'Temperature: ' + data['main']['temp'] + '°F';
+        console.log(temperaturevalue)
         var windvalue ='Wind: ' + data['wind']['speed'] + " MPH";
+        console.log(windvalue)
         var humidityvalue='Humidity: ' + data['main']['humidity'];
+        console.log(humidityvalue)
         var iconvalue= ''
         var latvalue = data['coord']['lat'];
+        console.log(latvalue)
         var lonvalue = data['coord']['lon'];
+        console.log(data)
 
         //display current day in html
         cityNameEl.innerHTML = cityvalue;
@@ -74,6 +80,7 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='
         } else if (uvivalue.data2 < 10){
             document.getElementsByClassName("uvIndex").classlist.add("red")
         }
+        console.log(uvivalue)
 
 uvIndexEl.innerHTML = uvivalue;
 
