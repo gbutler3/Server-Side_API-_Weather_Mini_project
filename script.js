@@ -10,6 +10,7 @@ var uvIndexEl= document.querySelector(".uvIndex");
 
 
 //variables for forcast
+var card1= document.getElementById("#card1")
 var forecastdate= document.querySelector(".box-date")
 var forecasttemp= document.querySelector(".box-temperature")
 var forecastwind= document.querySelector(".box-wind")
@@ -52,6 +53,8 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
         forecasttemp.innerHTML=temperaturevalue;
         forecastwind.innerHTML=windvalue;
         forcasthumidity.innerHTML=humidityvalue;
+
+        
 
         var skyconditions =document.querySelector("box-img");
 
