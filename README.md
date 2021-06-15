@@ -20,6 +20,6 @@ The following image shows the web application's appearance:
 
 ## Links
 
-- URL of the functional, deployed application: https://gbutler3.github.io/Server-Side_API-_Weather_Mini_project/
+- URL of the functional, deployed application:
 
 - The URL of the GitHub repository: https://github.com/gbutler3
