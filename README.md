@@ -16,7 +16,7 @@ Use the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) 
 
 The following image shows the web application's appearance:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions.](assets\screenshot.PNG)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions.](./assets/screenshot.PNG)
 
 ## Links
 
