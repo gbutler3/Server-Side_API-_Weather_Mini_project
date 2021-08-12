@@ -55,10 +55,7 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+ searchInput.val()+
 fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='+ lonvalue +'&exclude=hourly&appid=4774555034df98f9c59d9ec59b6ebf72')
 .then(response => response.json())
 .then(data => { 
-    // console.log(data)
     var uvivalue = 'UV Index: ' + data['current']['uvi']; 
-
-//todo: figure out why it's not setting a color
         if (data.uvivalue < 3){
             document.getElementsByClassName("uvIndex").classlist.add("green")
         } else if (data.uvivalue < 6){
@@ -67,7 +64,6 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+ latvalue + '&lon='
             document.getElementsByClassName("uvIndex").classlist.add("orange")
         } else if (data.uvivalue < 10){
             document.getElementsByClassName("uvIndex").classlist.add("red")}
-        // console.log(uvivalue)
 
 uvIndexEl.innerHTML = uvivalue;
 
@@ -93,7 +89,6 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + searchInput.val() 
     }
 })
 
-//TODO: In Application it shows only data being saved and not data
 localStorage.setItem(cityvalue,JSON.stringify(data));
 
 })
